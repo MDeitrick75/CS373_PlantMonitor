@@ -18,4 +18,21 @@ public class PlantBehavior
     {
         return state;
     }
+
+    public float GetHealth()
+    {
+        // Not implemented
+        return 0.0f;
+    }
+
+    public PlantBehavior()
+    {
+        // Defaults to best state
+        state.currSoilDryness = 0.0f;
+        state.currSurfaceHealth = 1.0f;
+        state.currStoredWater = 1.0f;
+        state.currPlantHeight = 0.0f;
+        state.currPlantWetness = 1.0f;
+        state.currSoilNutrients = 1.0f;
+    }
 }
