@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2af46da2cf0e204a8e4e74ce6ef4b48, type: 3}
   m_Name: Flower
   m_EditorClassIdentifier: Assembly-CSharp::Plant
-  expectedPlantHeight: 5
+  baseSprite: {fileID: -5101113094368448482, guid: bbb4736d97a90b549a94f9358e4a0512, type: 3}
+  soilSprite: {fileID: -2413806693520163455, guid: 5a07b842057adef4ebf377c5986c6b85, type: 3}
+  leafSprite: {fileID: -5925775950752879206, guid: 1be2a71f36498d6489cb2cde433a5ff9, type: 3}
+  healthyLeafColor: {r: 0, g: 1, b: 0, a: 1}
+  thirstyLeafColor: {r: 0.85, g: 0.8, b: 0.3, a: 1}
+  wetSoilColor: {r: 0.25, g: 0.16, b: 0.1, a: 1}
+  drySoilColor: {r: 0.65, g: 0.52, b: 0.38, a: 1}
   growthRate: 0.1
   plantWaterVolume: 0.1
   plantWaterStorageVolume: 0.5
   potVolume: 2
   waterConsumptionPerDay: 0.1
+  expectedPlantHeight: {x: 0, y: 0}
+  expectedLightIntensity: 0
+  bExpectedIndirectLight: 0
+  expectedTempuratureRange: {x: 0, y: 0}
+  expectedRepotFrequency: 0
+  expectedWaterFrequency: 0
+  expectedHumidity: 0
