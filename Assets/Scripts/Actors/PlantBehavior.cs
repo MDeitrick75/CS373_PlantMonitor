@@ -11,4 +11,11 @@ public class PlantBehavior
         public float currPlantWetness; // 0.0 is dry, 1.0 is full, if full, additional water is put in storage
         public float currSoilNutrients; // 0.0 needs a repot, 1.0 is max
     }
+
+    public PlantState state;
+
+    public PlantState GetState()
+    {
+        return state;
+    }
 }
