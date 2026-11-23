@@ -20,14 +20,15 @@ MonoBehaviour:
   wetSoilColor: {r: 0.25, g: 0.16, b: 0.1, a: 1}
   drySoilColor: {r: 0.65, g: 0.52, b: 0.38, a: 1}
   growthRate: 0.1
-  plantWaterVolume: 0.1
-  plantWaterStorageVolume: 0.5
-  potVolume: 2
+  plantWaterVolume: 0.3
+  plantWaterStorageVolume: 0.1
+  potVolume: 0.5
   waterConsumptionPerDay: 0.1
-  expectedPlantHeight: {x: 0, y: 0}
-  expectedLightIntensity: 0
+  decay: 0.1
+  expectedPlantHeight: {x: 4, y: 6}
+  expectedLightIntensity: 0.75
   bExpectedIndirectLight: 0
-  expectedTempuratureRange: {x: 0, y: 0}
+  expectedTempuratureRange: {x: 55, y: 70}
   expectedRepotFrequency: 0
   expectedWaterFrequency: 0
-  expectedHumidity: 0
+  expectedHumidity: 0.6
