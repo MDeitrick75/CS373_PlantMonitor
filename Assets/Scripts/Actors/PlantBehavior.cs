@@ -13,26 +13,33 @@ public class PlantBehavior
     }
 
     public PlantState state;
+    public PlantState prevState;
 
     public PlantState GetState()
     {
         return state;
     }
 
-    public float GetHealth()
+    float Health(PlantState ps)
     {
-        // Not implemented
-        return 0.0f;
+        return ps.currSurfaceHealth * ps.currPlantHeight;
+    }
+
+    public float GetHealth(PlantState previous)
+    {
+        float prevHealth = Health(previous);
+        float currHealth = Health(state);
+        return currHealth - prevHealth;
     }
 
     public PlantBehavior()
     {
         // Defaults to best state
         state.currSoilDryness = 0.0f;
-        state.currSurfaceHealth = 1.0f;
-        state.currStoredWater = 1.0f;
+        state.currSurfaceHealth = 0.5f;
+        state.currStoredWater = 0.0f;
         state.currPlantHeight = 0.0f;
-        state.currPlantWetness = 1.0f;
+        state.currPlantWetness = 0.0f;
         state.currSoilNutrients = 1.0f;
     }
 }

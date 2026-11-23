@@ -21,6 +21,7 @@ public class Plant : ScriptableObject
     public float plantWaterStorageVolume;
     public float potVolume;
     public float waterConsumptionPerDay; // Percentage of pot volume
+    public float decay = 0.1f;
 
     [Header("Expected")]
     public Vector2 expectedPlantHeight;
