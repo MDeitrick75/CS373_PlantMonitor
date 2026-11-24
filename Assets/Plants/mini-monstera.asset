@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2af46da2cf0e204a8e4e74ce6ef4b48, type: 3}
+  m_Name: mini-monstera
+  m_EditorClassIdentifier: Assembly-CSharp::Plant
+  baseSprite: {fileID: 0}
+  soilSprite: {fileID: 0}
+  leafSprite: {fileID: 0}
+  healthyLeafColor: {r: 0, g: 1, b: 0, a: 1}
+  thirstyLeafColor: {r: 0.85, g: 0.8, b: 0.3, a: 1}
+  wetSoilColor: {r: 0.25, g: 0.16, b: 0.1, a: 1}
+  drySoilColor: {r: 0.65, g: 0.52, b: 0.38, a: 1}
+  growthRate: 0
+  plantWaterVolume: 0
+  plantWaterStorageVolume: 0
+  potVolume: 0
+  waterConsumptionPerDay: 0
+  decay: 0.1
+  expectedPlantHeight: {x: 0, y: 0}
+  expectedLightIntensity: 0.4
+  bExpectedIndirectLight: 1
+  expectedTempuratureRange: {x: 0, y: 0}
+  expectedRepotFrequency: 0
+  expectedWaterFrequency: 0
+  expectedHumidity: 0
