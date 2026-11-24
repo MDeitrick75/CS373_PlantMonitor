@@ -43,8 +43,7 @@ public class PlantSimulatorController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ResetSimulator();
-            RunSimulation(30);
+            Repot(ref testPlant);
         }
     }
 
