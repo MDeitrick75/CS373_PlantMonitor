@@ -36,6 +36,11 @@ public class PlantSimulatorController : MonoBehaviour
             Tick(ref testPlant);
         }
 
+        if (Input.GetKeyDown(KeyCode.W)) // Tick
+        {
+            Water(ref testPlant);
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetSimulator();
@@ -49,19 +54,19 @@ public class PlantSimulatorController : MonoBehaviour
         {
             if (environment.waterFrequency <= 0)
             {
-                if (Random.Range(0.0f, 1.0f) < 0.75f) Water();
+                if (Random.Range(0.0f, 1.0f) < 0.75f) Water(ref testPlant);
             }
             else
             {
-                if (i % environment.waterFrequency == 0) Water();
+                if (i % environment.waterFrequency == 0) Water(ref testPlant);
             }
             if (environment.repotFrequency <= 0)
             {
-                if (Random.Range(0.0f, 1.0f) < 0.25f) Repot();
+                if (Random.Range(0.0f, 1.0f) < 0.25f) Repot(ref testPlant);
             }
             else
             {
-                if (i % environment.repotFrequency == 0) Water();
+                if (i % environment.repotFrequency == 0) Water(ref testPlant);
             }
 
             Tick(ref testPlant);
@@ -92,21 +97,19 @@ public class PlantSimulatorController : MonoBehaviour
         currPlant = plant;
     }
 
-    public void Water()
+    public void Water(ref PlantBehavior behavior)
     {
-        // TEMP TEMP TEMP
-        testPlant.state.currSoilDryness = 0.0f;
-        string output = PrintPlantState(testPlant, tick);
+        behavior.state.currSoilDryness = 0.0f;
+        string output = PrintPlantState(behavior, tick);
         Debug.Log(output);
         DebugDisplay.text = output;
     }
 
-    public void Repot()
+    public void Repot(ref PlantBehavior behavior)
     {
-        // TEMP TEMP TEMP
-        testPlant.state.currSoilNutrients = 1.0f;
-        testPlant.state.currSurfaceHealth *= 0.8f; // 20% health lost on repot
-        string output = PrintPlantState(testPlant, tick);
+        behavior.state.currSoilNutrients = 1.0f;
+        behavior.state.currSurfaceHealth *= 0.8f; // 20% health lost on repot
+        string output = PrintPlantState(behavior, tick);
         Debug.Log(output);
         DebugDisplay.text = output;
     }
@@ -136,7 +139,7 @@ public class PlantSimulatorController : MonoBehaviour
 
         // To calculate nutrients, decrease by same percentage as water decreased by
         float soilNutrients = behavior.state.currSoilNutrients;
-        behavior.state.currSoilNutrients = Mathf.Clamp(soilNutrients - nutrientPercent, 0.0f, 1.0f);
+        behavior.state.currSoilNutrients = Mathf.Clamp(soilNutrients - (nutrientPercent * 0.01f), 0.0f, 1.0f);
 
         // -- Water --
         // Subtracting water for consumption
@@ -194,7 +197,7 @@ public class PlantSimulatorController : MonoBehaviour
 
         // -- Surface health --
         // Needs to factor in humidity, light, and whatnot
-        behavior.state.currSurfaceHealth = Mathf.Clamp(behavior.state.currSurfaceHealth + (((behavior.state.currPlantWetness * behavior.state.currSoilNutrients * 2.0f) - 1.0f) * currPlant.decay) + (-lightDiff * currPlant.decay) + (-directDiff * currPlant.decay) + (-tempuratureDiff * currPlant.decay) + (-humidityDiff * currPlant.decay), 0.0f, 1.0f);
+        behavior.state.currSurfaceHealth = Mathf.Clamp(behavior.state.currSurfaceHealth + (((behavior.state.currPlantWetness * behavior.state.currSoilNutrients * 2.0f) - 1.0f) * currPlant.decay) + (0.25f * -lightDiff * currPlant.decay) + (0.1f * -directDiff * currPlant.decay) + (0.4f * -tempuratureDiff * currPlant.decay) + (0.6f * -humidityDiff * currPlant.decay), 0.0f, 1.0f);
 
         // -- Plant height --
         behavior.state.currPlantHeight += (currPlant.growthRate * behavior.state.currSoilNutrients * behavior.state.currPlantWetness * behavior.state.currSurfaceHealth) * Mathf.Pow(1.0f - (behavior.state.currPlantHeight / currPlant.expectedPlantHeight.y), 2.0f);
