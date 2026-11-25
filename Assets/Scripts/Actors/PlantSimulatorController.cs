@@ -100,7 +100,7 @@ public class PlantSimulatorController : MonoBehaviour
     {
         behavior.state.currSoilDryness = 0.0f;
         string output = PrintPlantState(behavior, tick);
-        Debug.Log(output);
+        //Debug.Log(output);
         DebugDisplay.text = output;
     }
 
@@ -109,7 +109,7 @@ public class PlantSimulatorController : MonoBehaviour
         behavior.state.currSoilNutrients = 1.0f;
         behavior.state.currSurfaceHealth *= 0.8f; // 20% health lost on repot
         string output = PrintPlantState(behavior, tick);
-        Debug.Log(output);
+        //Debug.Log(output);
         DebugDisplay.text = output;
     }
 
@@ -204,7 +204,7 @@ public class PlantSimulatorController : MonoBehaviour
         tick++;
 
         string output = PrintPlantState(behavior, tick);
-        Debug.Log(output);
+        //Debug.Log(output);
         DebugDisplay.text = output;
 
         return behavior.GetHealth(behavior.prevState);
